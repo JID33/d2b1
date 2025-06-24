@@ -2,71 +2,153 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inscription Dream2Build1 $ Rotatif</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coopérative D2B1 Solidaire</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
-    h1 { text-align: center; color: #007BFF; }
-    form, table { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    label { display: block; margin-top: 10px; font-weight: bold; }
-    input, select { width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; }
-    button { background-color: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
-    button:hover { background-color: #218838; }
-    .cash-infos { display: none; background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin-bottom: 20px; }
-    .admin-info { margin: 20px auto; max-width: 900px; background: #e7f3fe; padding: 15px; border-left: 4px solid #2196F3; border-radius: 5px; font-size: 16px; }
-    .admin-info strong { color: #007BFF; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4faff;
+      color: #0a2540;
+    }
+    header {
+      background-color: #d0ecff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #0a2540;
+    }
+    header p {
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border: 1px solid #cbe4f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .card h3 {
+      margin-top: 10px;
+    }
+    .card p {
+      font-size: 0.95em;
+      color: #333;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .faq {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .faq ul {
+      list-style-type: circle;
+      padding-left: 20px;
+    }
+    footer {
+      background-color: #e0f0ff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0077cc;
+    }
   </style>
 </head>
 <body>
 
-<h1>Formulaire d'inscription - $ Rotatif Dream2Build1</h1>
+<header>
+  <h1>Coopérative D2B1 Solidaire</h1>
+  <p>Ensemble, nous bâtissons notre avenir.<br>
+  Une coopérative solidaire pour le financement local, par la communauté et pour la communauté.</p>
+</header>
 
-<div class="admin-info">
-  <strong>Référence Admin :</strong> D2B1-001<br />
-  <strong>Lien de référence Admin :</strong> <a href="https://dream2build1.com/ref-admin" target="_blank">https://dream2build1.com/ref-admin</a>
-</div>
-
-<form id="inscriptionForm" name="inscriptionForm" method="POST" action="https://docs.google.com/forms/d/e/TON_GOOGLE_FORM_URL/formResponse" target="hidden_iframe" onsubmit="submitted=true">
-
-  <label>Nom & Prénom :</label>
-  <input name="entry.NOM_ID" type="text" placeholder="Jean Dupont" required />
-
-  <label>Référence (ID ou code) :</label>
-  <input name="entry.REF_ID" type="text" placeholder="Ref123" />
-
-  <label>Lien de référence :</label>
-  <input name="entry.LIEN_ID" type="url" placeholder="https://..." />
-
-  <label>Moyen de paiement :</label>
-  <select name="entry.MOYEN_ID" id="paiementSelect" required onchange="checkPaiement()">
-    <option value="">-- Choisir --</option>
-    <option value="MonCash">MonCash</option>
-    <option value="PayPal">PayPal</option>
-    <option value="NatCash">NatCash</option>
-    <option value="Mastercard">Mastercard</option>
-    <option value="Cash">Cash</option>
-  </select>
-
-  <div id="cashMessage" class="cash-infos">
-    Vous avez choisi de payer en <strong>Cash</strong>. Merci de contacter l'admin sur WhatsApp ou par email pour valider votre paiement.
+<section class="section">
+  <h2>Nos Services</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>💸 Épargne solidaire</h3>
+      <p>Cotisation régulière mensuelle pour les membres.</p>
+    </div>
+    <div class="card">
+      <h3>🔁 Crédit rotatif</h3>
+      <p>Prêts tournants entre membres selon un calendrier.</p>
+    </div>
+    <div class="card">
+      <h3>🛠️ Financement de projets</h3>
+      <p>Demande de micro-financement pour projets locaux.</p>
+    </div>
+    <div class="card">
+      <h3>📊 Participation aux décisions</h3>
+      <p>Assemblées virtuelles ou sondages communautaires.</p>
+    </div>
+    <div class="card">
+      <h3>🔐 Espace Membre Sécurisé</h3>
+      <a href="#" class="button">Connexion</a>
+    </div>
+    <div class="card">
+      <h3>🧑‍🤝‍🧑 Devenir Membre</h3>
+      <a href="#" class="button">Rejoindre</a>
+    </div>
+    <div class="card">
+      <h3>📋 Projets financés</h3>
+      <a href="#" class="button">Voir</a>
+    </div>
+    <div class="card">
+      <h3>📄 Documents et règlements</h3>
+      <a href="#" class="button">Lire</a>
+    </div>
   </div>
+</section>
 
-  <button type="submit">Envoyer</button>
-</form>
+<section class="section">
+  <h2>FAQ Coopérative</h2>
+  <div class="faq">
+    <ul>
+      <li>Qui peut devenir membre ?</li>
+      <li>Comment les rotations fonctionnent-elles ?</li>
+      <li>Que se passe-t-il si un membre ne paie pas ?</li>
+      <li>Peut-on quitter la coopérative ?</li>
+      <li>Comment les décisions sont-elles prises ?</li>
+    </ul>
+  </div>
+</section>
 
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-<script>
-function checkPaiement() {
-  const paiement = document.getElementById("paiementSelect").value;
-  const cashDiv = document.getElementById("cashMessage");
-  if (paiement === "Cash") {
-    cashDiv.style.display = "block";
-  } else {
-    cashDiv.style.display = "none";
-  }
-}
-</script>
+<footer>
+  📩 contact@d2b1solidaire.fr |
+  <a href="#">Rejoindre la coopérative</a> |
+  <a href="#">Voir les règles</a>
+</footer>
 
 </body>
 </html>
