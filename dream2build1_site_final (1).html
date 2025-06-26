@@ -1,154 +1,156 @@
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coopérative D2B1 Solidaire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dream2Build1 Platform</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f4faff;
-      color: #0a2540;
-    }
-    header {
-      background-color: #d0ecff;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-      color: #0a2540;
-    }
-    header p {
-      font-size: 1.1em;
-      margin-top: 10px;
-    }
-    .section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .section h2 {
-      font-size: 1.8em;
-      margin-bottom: 30px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border: 1px solid #cbe4f9;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .card h3 {
-      margin-top: 10px;
-    }
-    .card p {
-      font-size: 0.95em;
-      color: #333;
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #0077cc;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 10px;
-    }
-    .faq {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .faq ul {
-      list-style-type: circle;
-      padding-left: 20px;
-    }
-    footer {
-      background-color: #e0f0ff;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-    footer a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #0077cc;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; }
+    header { background: #007BFF; color: white; padding: 15px; text-align: center; }
+    nav { background: #0056b3; padding: 10px; text-align: center; }
+    nav button { background: white; color: #0056b3; border: none; margin: 0 10px; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    nav button:hover { background: #f1f1f1; }
+    section { display: none; padding: 20px; max-width: 900px; margin: auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px; border-radius: 8px; }
+    section.active { display: block; }
+    h2 { color: #007BFF; text-align: center; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, button, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+    button.submit { background-color: #28a745; color: white; border: none; }
+    button.logout { background-color: #dc3545; color: white; border: none; margin-top: 20px; }
+    .translate-widget { text-align: center; padding: 10px; }
+    .payment-info { background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin-top: 10px; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Coopérative D2B1 Solidaire</h1>
-  <p>Ensemble, nous bâtissons notre avenir.<br>
-  Une coopérative solidaire pour le financement local, par la communauté et pour la communauté.</p>
-</header>
-
-<section class="section">
-  <h2>Nos Services</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>💸 Épargne solidaire</h3>
-      <p>Cotisation régulière mensuelle pour les membres.</p>
+  <header>
+    <h1>Dream2Build1 💸 Rotating Dollars System</h1>
+  </header>
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('newMember')">New Member</button>
+    <button onclick="showSection('leader')">Team Leader</button>
+    <button onclick="showSection('ceo')">CEO</button>
+  </nav>
+  <div class="translate-widget"><div id="google_translate_element"></div></div>
+  <section id="home" class="active">
+    <h2>How the Rotating Dollar System Works</h2>
+    <p>Each day, members contribute $10. One selected member receives the total amount minus a reserve. This system rotates daily, building mutual support. Payments accepted: Cash, Mastercard, PayPal, MonCash, NatCash.</p>
+  </section>
+  <section id="newMember">
+    <h2>Register as a New Member</h2>
+    <form id="newMemberForm">
+      <label>Full Name:</label>
+      <input type="text" name="fullname" required>
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      <label>Choose Payment Method:</label>
+      <select name="paymentMethod" onchange="showPaymentDetails(this.value)" required>
+        <option value="">--Select--</option>
+        <option value="cash">Cash</option>
+        <option value="mastercard">Mastercard / Debit</option>
+        <option value="paypal">PayPal</option>
+        <option value="moncash">MonCash</option>
+        <option value="natcash">NatCash</option>
+      </select>
+      <div id="paymentDetails" class="payment-info"></div>
+      <button type="submit" class="submit">I have paid</button>
+    </form>
+  </section>
+  <section id="leader">
+    <h2>Team Leader Panel</h2>
+    <div id="leaderLogin">
+      <label>Email:</label>
+      <input type="email" id="leaderEmail">
+      <label>Password:</label>
+      <input type="password" id="leaderPassword">
+      <button class="submit" onclick="loginLeader()">Login</button>
     </div>
-    <div class="card">
-      <h3>🔁 Crédit rotatif</h3>
-      <p>Prêts tournants entre membres selon un calendrier.</p>
+    <div id="leaderDashboard" class="hidden">
+      <p>Welcome, Leader!</p>
+      <div id="leaderTasks">Waiting for member approval logic...</div>
+      <button class="logout" onclick="logoutLeader()">Logout</button>
     </div>
-    <div class="card">
-      <h3>🛠️ Financement de projets</h3>
-      <p>Demande de micro-financement pour projets locaux.</p>
+  </section>
+  <section id="ceo">
+    <h2>CEO Dashboard</h2>
+    <div id="ceoLogin">
+      <label>Email:</label>
+      <input type="email" id="ceoEmail">
+      <label>Password:</label>
+      <input type="password" id="ceoPassword">
+      <button class="submit" onclick="loginCeo()">Login</button>
     </div>
-    <div class="card">
-      <h3>📊 Participation aux décisions</h3>
-      <p>Assemblées virtuelles ou sondages communautaires.</p>
+    <div id="ceoDashboard" class="hidden">
+      <p>Welcome CEO! You control the platform.</p>
+      <div id="ceoTasks">Rotation table and member control will appear here.</div>
+      <button class="logout" onclick="logoutCeo()">Logout</button>
     </div>
-    <div class="card">
-      <h3>🔐 Espace Membre Sécurisé</h3>
-      <a href="#" class="button">Connexion</a>
-    </div>
-    <div class="card">
-      <h3>🧑‍🤝‍🧑 Devenir Membre</h3>
-      <a href="#" class="button">Rejoindre</a>
-    </div>
-    <div class="card">
-      <h3>📋 Projets financés</h3>
-      <a href="#" class="button">Voir</a>
-    </div>
-    <div class="card">
-      <h3>📄 Documents et règlements</h3>
-      <a href="#" class="button">Lire</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>FAQ Coopérative</h2>
-  <div class="faq">
-    <ul>
-      <li>Qui peut devenir membre ?</li>
-      <li>Comment les rotations fonctionnent-elles ?</li>
-      <li>Que se passe-t-il si un membre ne paie pas ?</li>
-      <li>Peut-on quitter la coopérative ?</li>
-      <li>Comment les décisions sont-elles prises ?</li>
-    </ul>
-  </div>
-</section>
-
-<footer>
-  📩 contact@d2b1solidaire.fr |
-  <a href="#">Rejoindre la coopérative</a> |
-  <a href="#">Voir les règles</a>
-</footer>
-
+  </section>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function showPaymentDetails(method) {
+      let html = '';
+      if (method === 'cash') html = 'A leader will contact you to validate your payment.';
+      if (method === 'mastercard') html = 'Enter 16-digit card number, expiry, CVC and name.';
+      if (method === 'paypal') html = 'Send payment to: dream2build@gmail.com';
+      if (method === 'moncash') html = 'MonCash #: +509 31428491';
+      if (method === 'natcash') html = 'NatCash #: +509 43260012';
+      document.getElementById('paymentDetails').innerHTML = html;
+    }
+    const ceo = { email: 'emmanueljeambas@gmail.com', password: 'Emmanuel1@' };
+    const leaders = [{ email: 'leader@example.com', password: 'leader123' }];
+    function loginLeader() {
+      const email = document.getElementById('leaderEmail').value;
+      const pass = document.getElementById('leaderPassword').value;
+      const found = leaders.find(l => l.email === email && l.password === pass);
+      if (found) {
+        document.getElementById('leaderLogin').style.display = 'none';
+        document.getElementById('leaderDashboard').classList.remove('hidden');
+      } else {
+        alert('Login failed.');
+      }
+    }
+    function logoutLeader() {
+      document.getElementById('leaderLogin').style.display = 'block';
+      document.getElementById('leaderDashboard').classList.add('hidden');
+    }
+    function loginCeo() {
+      const email = document.getElementById('ceoEmail').value;
+      const pass = document.getElementById('ceoPassword').value;
+      if (email === ceo.email && pass === ceo.password) {
+        document.getElementById('ceoLogin').style.display = 'none';
+        document.getElementById('ceoDashboard').classList.remove('hidden');
+      } else {
+        alert('CEO login failed.');
+      }
+    }
+    function logoutCeo() {
+      document.getElementById('ceoLogin').style.display = 'block';
+      document.getElementById('ceoDashboard').classList.add('hidden');
+    }
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    document.getElementById('newMemberForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch('https://script.google.com/macros/s/AKfycbzX-R1QDyi29FKw5P-SrXkceqkUyJ8es6Uo3PUotw_7AN9O99cY9-W-GIYCoQewj7CO3Q/exec', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.text())
+      .then(data => {
+        alert('Payment received. Please wait for Leader validation.');
+        document.getElementById('newMemberForm').reset();
+      })
+      .catch(err => alert('Submission failed.'));
+    });
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
